@@ -12,5 +12,5 @@ docker build -t "$image" -f "$repo_root"/Dockerfile"
 
 uid="$(id -u)"
 
-docker run --rm -i -e ARCH -e GITHUB_RUN_NUMBER -e CI=1 -v "$repo_root":/ws:ro -v "$cwd":/out "$image" \
+docker run --privileged --rm -i -e ARCH -e GITHUB_RUN_NUMBER -e CI=1 -v "$repo_root":/ws:ro -v "$cwd":/out "$image" \
     bash -xec 'cd /out && bash -xe /ws/build-everything.sh'
