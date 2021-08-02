@@ -32,7 +32,7 @@ chmod -R a+rx AppDir
 
 wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
 chmod +x linuxdeploy*.AppImage
-export OUTPUT=org.srb2.SRB2Kart.appimage
+export OUTPUT=org.srb2.SRB2Kart.AppImage
 ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
 ls
-mv org.srb2.SRB2Kart.appimage "$OLD_CWD"/
+mv org.srb2.SRB2Kart.AppImage "$OLD_CWD"/
