@@ -19,6 +19,11 @@ cd kart
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
 
+git clone https://gitlab.com/himie/kart-public.git moe
+cd moe
+LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
+cd ..
+
 wget -q https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
 chmod +x linuxdeploy*.AppImage
 
@@ -41,3 +46,17 @@ chmod -R a+rx AppDir
 
 export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|continuous|srb2kart-x86_64.AppImage.zsync"
 OUTPUT=srb2kart-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
+
+mv AppDir/usr/games/ ./
+
+install -Dm755 moe/bin/Linux64/Release/lsdl2srb2kart AppDir/usr/bin/srb2kart
+
+export VERSION=1.3-moe-$(cd moe && git rev-parse --short HEAD)
+
+export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|continuous|srb2kart-moe-noassets-x86_64.AppImage.zsync"
+OUTPUT=srb2kart-moe-noassets-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
+
+mv ./games/ AppDir/usr/
+
+export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|continuous|srb2kart-moe-x86_64.AppImage.zsync"
+OUTPUT=srb2kart-moe-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
