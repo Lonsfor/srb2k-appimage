@@ -3,6 +3,9 @@
 set -x
 set -e
 
+sudo apt update -y && apt upgrade -y
+sudo apt install -y build-essential git p7zip-full p7zip-rar nasm libpng-dev zlib1g-dev libsdl2-dev libsdl2-mixer-dev libgme-dev libopenmpt-dev libcurl4-openssl-dev rapidjson-dev cmake fuse nano pkg-config
+
 REPO_ROOT=$(readlink -f $(dirname $(dirname "$0")))
 OLD_CWD=$(readlink -f .)
 
@@ -11,7 +14,7 @@ cd discord-rpc
 mkdir build
 cd build
 cmake .. -DBUILD_EXAMPLES=OFF -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=/usr
-cmake --build . --config Release --target install
+sudo cmake --build . --config Release --target install
 cd ../..
 
 git clone https://github.com/STJr/Kart-Public.git kart
@@ -35,4 +38,3 @@ chmod +x linuxdeploy*.AppImage
 export OUTPUT=org.srb2.SRB2Kart.AppImage
 ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
 ls
-mv org.srb2.SRB2Kart.AppImage "$OLD_CWD"/
