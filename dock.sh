@@ -8,7 +8,7 @@ repo_root="$(readlink -f "$(dirname "$0")"/..)"
 
 image=srb2kappimage-build
 
-docker build -t "$image" -f "$repo_root"/Dockerfile
+docker build -t "$image" -f "$repo_root"/Dockerfile "$repo_root"
 
 uid="$(id -u)"
 
