@@ -6,9 +6,6 @@ set -e
 sudo apt update -yq && sudo apt upgrade -yq
 sudo apt install -yq build-essential git p7zip-full p7zip-rar nasm libpng-dev zlib1g-dev libsdl2-dev libsdl2-mixer-dev libgme-dev libopenmpt-dev libcurl4-openssl-dev rapidjson-dev cmake fuse nano pkg-config
 
-REPO_ROOT=$(readlink -f $(dirname $(dirname "$0")))
-OLD_CWD=$(readlink -f .)
-
 git clone https://github.com/discord/discord-rpc.git
 cd discord-rpc
 mkdir build
@@ -28,13 +25,14 @@ install -Dm755 kart/bin/Linux64/Release/lsdl2srb2kart AppDir/usr/bin/srb2kart
 install -Dm755 AppRun AppDir/
 install -Dm644 kart/srb2.png AppDir/usr/share/icons/hicolor/256x256/apps/org.srb2.SRB2Kart.png
 install -Dm644 org.srb2.SRB2Kart.desktop AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
+chmod -R a+rx AppDir
+
+wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
+chmod +x linuxdeploy*.AppImage
+OUTPUT=SRB2Kart-noassets-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
 
 wget https://github.com/STJr/Kart-Public/releases/download/v1.3/srb2kart-v13-Installer.exe
 7z x srb2kart-v13-Installer.exe -oAppDir/usr/games/SRB2Kart/ "*.kart" "*.srb" "mdls.dat" "mdls/*"
 chmod -R a+rx AppDir
 
-wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
-chmod +x linuxdeploy*.AppImage
-export OUTPUT=org.srb2.SRB2Kart.AppImage
-./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
-ls
+OUTPUT=SRB2Kart-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
