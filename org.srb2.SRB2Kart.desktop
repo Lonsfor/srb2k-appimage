@@ -10,6 +10,8 @@ Categories=ArcadeGame;Game;SportsGame;
 Keywords=kart;sonic;racer;multiplayer;
 Actions=OpenGL;Software;
 NoDisplay=false
+X-AppImage-Name=SRB2Kart
+X-AppImage-Arch=x86_64
 
 [Desktop Action OpenGL]
 Name=OpenGL
