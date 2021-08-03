@@ -32,12 +32,12 @@ chmod -R a+rx AppDir
 
 export VERSION=1.3-git-$(cd kart && git rev-parse --short HEAD)
 
-export UPDATE_INFORMATION=gh-releases-zsync|lonsfor|srb2k-appimage|continuous|srb2kart-noassets-x86_64.AppImage.zsync 
+export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|continuous|srb2kart-noassets-x86_64.AppImage.zsync"
 OUTPUT=srb2kart-noassets-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
 
 wget https://github.com/STJr/Kart-Public/releases/download/v1.3/srb2kart-v13-Installer.exe
 7z x srb2kart-v13-Installer.exe -oAppDir/usr/games/SRB2Kart/ "*.kart" "*.srb" "mdls.dat" "mdls/*"
 chmod -R a+rx AppDir
 
-export UPDATE_INFORMATION=gh-releases-zsync|lonsfor|srb2k-appimage|continuous|srb2kart-x86_64.AppImage.zsync 
+export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|continuous|srb2kart-x86_64.AppImage.zsync"
 OUTPUT=srb2kart-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
