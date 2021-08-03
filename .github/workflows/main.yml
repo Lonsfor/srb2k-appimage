@@ -19,8 +19,8 @@ jobs:
         with:
           name: AppImage build
           path: |
-            SRB2Kart-noassets-x86_64.AppImage
-            SRB2Kart-x86_64.AppImage
+            srb2kart-noassets-x86_64.AppImage
+            srb2kart-x86_64.AppImage
 
   upload:
     name: Create release and upload artifacts
@@ -38,4 +38,4 @@ jobs:
         run: |
             wget -q https://github.com/TheAssassin/pyuploadtool/releases/download/continuous/pyuploadtool-x86_64.AppImage
             chmod +x pyuploadtool-x86_64.AppImage
-            ./pyuploadtool-x86_64.AppImage **/SRB2Kart-x86_64.AppImage **/SRB2Kart-noassets-x86_64.AppImage
+            ./pyuploadtool-x86_64.AppImage **/srb2kart-x86_64.AppImage **/srb2kart-noassets-x86_64.AppImage
