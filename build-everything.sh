@@ -3,8 +3,8 @@
 set -x
 set -e
 
-sudo apt update -y && apt upgrade -y
-sudo apt install -y build-essential git p7zip-full p7zip-rar nasm libpng-dev zlib1g-dev libsdl2-dev libsdl2-mixer-dev libgme-dev libopenmpt-dev libcurl4-openssl-dev rapidjson-dev cmake fuse nano pkg-config
+sudo apt update -yq && sudo apt upgrade -yq
+sudo apt install -yq build-essential git p7zip-full p7zip-rar nasm libpng-dev zlib1g-dev libsdl2-dev libsdl2-mixer-dev libgme-dev libopenmpt-dev libcurl4-openssl-dev rapidjson-dev cmake fuse nano pkg-config
 
 REPO_ROOT=$(readlink -f $(dirname $(dirname "$0")))
 OLD_CWD=$(readlink -f .)
