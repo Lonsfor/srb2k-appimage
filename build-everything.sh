@@ -19,6 +19,9 @@ cd kart
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
 
+wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
+chmod +x linuxdeploy*.AppImage
+
 mkdir -p AppDir/usr/bin
 mkdir -p AppDir/usr/share/applications
 install -Dm755 kart/bin/Linux64/Release/lsdl2srb2kart AppDir/usr/bin/srb2kart
@@ -27,12 +30,14 @@ install -Dm644 kart/srb2.png AppDir/usr/share/icons/hicolor/256x256/apps/org.srb
 install -Dm644 org.srb2.SRB2Kart.desktop AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
 chmod -R a+rx AppDir
 
-wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
-chmod +x linuxdeploy*.AppImage
-OUTPUT=SRB2Kart-noassets-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
+export VERSION=1.3-git-$(cd kart && git rev-parse --short HEAD)
+
+export UPDATE_INFORMATION=gh-releases-zsync|lonsfor|srb2k-appimage|continuous|srb2kart-noassets-x86_64.AppImage.zsync 
+OUTPUT=srb2kart-noassets-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
 
 wget https://github.com/STJr/Kart-Public/releases/download/v1.3/srb2kart-v13-Installer.exe
 7z x srb2kart-v13-Installer.exe -oAppDir/usr/games/SRB2Kart/ "*.kart" "*.srb" "mdls.dat" "mdls/*"
 chmod -R a+rx AppDir
 
-OUTPUT=SRB2Kart-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
+export UPDATE_INFORMATION=gh-releases-zsync|lonsfor|srb2k-appimage|continuous|srb2kart-x86_64.AppImage.zsync 
+OUTPUT=srb2kart-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
