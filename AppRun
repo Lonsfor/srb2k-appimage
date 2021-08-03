@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+set -e
+HERE=$(readlink -f $(dirname "$0"))
+SRB2WADDIR=$HERE/usr/games/SRB2Kart LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HERE/lib exec $HERE/usr/bin/srb2kart "$@"
