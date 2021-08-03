@@ -1,3 +1,4 @@
 #! /usr/bin/env bash
 set -e
+set -x
 SRB2WADDIR=$APPDIR/usr/games/SRB2Kart LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$APPDIR/lib exec $APPDIR/usr/bin/srb2kart "$@"
