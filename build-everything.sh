@@ -37,14 +37,14 @@ chmod -R a+rx AppDir
 
 export VERSION=1.3-git-$(cd kart && git rev-parse --short HEAD)
 
-export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|continuous|srb2kart-noassets-x86_64.AppImage.zsync"
+export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-noassets-x86_64.AppImage.zsync"
 OUTPUT=srb2kart-noassets-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
 
 wget -q https://github.com/STJr/Kart-Public/releases/download/v1.3/srb2kart-v13-Installer.exe
 7z x srb2kart-v13-Installer.exe -oAppDir/usr/games/SRB2Kart/ "*.kart" "*.srb" "mdls.dat" "mdls/*"
 chmod -R a+rx AppDir
 
-export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|continuous|srb2kart-x86_64.AppImage.zsync"
+export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-x86_64.AppImage.zsync"
 OUTPUT=srb2kart-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
 
 mv AppDir/usr/games/ ./
@@ -53,10 +53,10 @@ install -Dm755 moe/bin/Linux64/Release/lsdl2srb2kart AppDir/usr/bin/srb2kart
 
 export VERSION=1.3-moe-$(cd moe && git rev-parse --short HEAD)
 
-export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|continuous|srb2kart-moe-noassets-x86_64.AppImage.zsync"
+export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-moe-noassets-x86_64.AppImage.zsync"
 OUTPUT=srb2kart-moe-noassets-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
 
 mv ./games/ AppDir/usr/
 
-export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|continuous|srb2kart-moe-x86_64.AppImage.zsync"
+export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-moe-x86_64.AppImage.zsync"
 OUTPUT=srb2kart-moe-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
