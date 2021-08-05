@@ -2,7 +2,7 @@
 
 There are 2 builds available: Latest upstream Git or the [Moe mansion](https://mb.srb2.org/addons/srb2kart-1-3-moe-mansion.42/) community build and each build is available with or wothout assets.
 
-To use just download the `.AppImage` of your choice from [here](https://github.com/Lonsfor/srb2k-appimage/releases/tag/continuous), make it executible (with GUI or Terminal) and run it.
+To use just download the `.AppImage` of your choice from [here](https://github.com/Lonsfor/srb2k-appimage/releases/latest), make it executible (with GUI or Terminal) and run it.
 
 Terminal example:
 ```
