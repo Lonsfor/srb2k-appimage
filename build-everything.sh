@@ -64,6 +64,4 @@ sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.s
 
 mv ./games/ AppDir/usr/
 
-export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-moe-x86_64.AppImage.zsync"
-OUTPUT=srb2kart-moe-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
 ./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-moe-x86_64.AppImage.zsync" AppDir srb2kart-moe-x86_64.AppImage
