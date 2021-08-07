@@ -12,6 +12,7 @@ Actions=OpenGL;Software;
 NoDisplay=false
 X-AppImage-Name=SRB2Kart
 X-AppImage-Arch=x86_64
+X-AppImage-Version=VERSION
 
 [Desktop Action OpenGL]
 Name=OpenGL
