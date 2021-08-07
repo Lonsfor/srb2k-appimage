@@ -15,10 +15,9 @@ X-AppImage-Arch=x86_64
 X-AppImage-Version=VERSION
 
 [Desktop Action OpenGL]
-Name=OpenGL
+Name=OpenGL renderer
 Exec=srb2kart -opengl
 
 [Desktop Action Software]
 Name=Software renderer
 Exec=srb2kart -software
-
