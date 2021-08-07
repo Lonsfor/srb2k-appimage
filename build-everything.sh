@@ -42,12 +42,12 @@ export NEWCOMMITANDDATE=$(cd kart && git show --summary --pretty='format:"1.3-gi
 sed -i 's/VERSION/'"$NEWVERSION"'/g' AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
 sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
 
-./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-noassets-x86_64.AppImage.zsync" srb2kart-noassets-x86_64.AppImage
+./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-noassets-x86_64.AppImage.zsync" AppDir srb2kart-noassets-x86_64.AppImage
 
 wget -q https://github.com/STJr/Kart-Public/releases/download/v1.3/srb2kart-v13-Installer.exe
 7z x srb2kart-v13-Installer.exe -oAppDir/usr/games/SRB2Kart/ "*.kart" "*.srb" "mdls.dat" "mdls/*"
 
-./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-x86_64.AppImage.zsync" srb2kart-x86_64.AppImage
+./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-x86_64.AppImage.zsync" AppDir srb2kart-x86_64.AppImage
 
 mv AppDir/usr/games/ ./
 
@@ -60,10 +60,10 @@ export NEWCOMMITANDDATE=$(cd moe && git show --summary --pretty='format:"1.3-moe
 sed -i 's/VERSION/'"$NEWVERSION"'/g' AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
 sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
 
-./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-moe-noassets-x86_64.AppImage.zsync" srb2kart-moe-noassets-x86_64.AppImage
+./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-moe-noassets-x86_64.AppImage.zsync" AppDir srb2kart-moe-noassets-x86_64.AppImage
 
 mv ./games/ AppDir/usr/
 
 export UPDATE_INFORMATION="gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-moe-x86_64.AppImage.zsync"
 OUTPUT=srb2kart-moe-x86_64.AppImage ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
-./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-moe-x86_64.AppImage.zsync" srb2kart-moe-x86_64.AppImage
+./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-moe-x86_64.AppImage.zsync" AppDir srb2kart-moe-x86_64.AppImage
