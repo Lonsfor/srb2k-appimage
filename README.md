@@ -16,10 +16,11 @@ Ignore the `.zsync` files those are for the updating system.
 
 If you download an AppImage without assets make sure you have them somewere else beforehand. In case you do not, they can be extracted from the [srb2kart installer](https://github.com/STJr/Kart-Public/releases/download/v1.3/srb2kart-v13-Installer.exe). Just open it like a `.zip` file and place the `.kart`, `.srb`, `mdls` and `mdls.dat` in `~/.srb2kart`.
 
-
 ```
+wget https://github.com/STJr/Kart-Public/releases/download/v1.3/srb2kart-v13-Installer.exe
 7z x srb2kart-v13-Installer.exe -o"$HOME"/.srb2kart/ "*.kart" "*.srb" "mdls.dat" "mdls/*"
 rm srb2kart-v13-Installer.exe  # remove it since we dont need it now
 ```
 
-
+## Notice:
+Because of the way the AppImage maunt and the game's fallback addon downloader interact, the game can crash when joining a server that is not configured correctly if you are not using a noassets build or manually set the SRB2WADDIR eviroment variable. [see issue.](https://github.com/Lonsfor/srb2k-appimage/issues/1)
