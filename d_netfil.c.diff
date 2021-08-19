@@ -1,0 +1,14 @@
+--- a/src/d_netfil.c	2021-08-19 16:15:53.449290658 -0400
++++ b/src/d_netfil.c	2021-08-19 16:27:46.772280794 -0400
+@@ -337,11 +337,6 @@
+ 			fileneeded[i].status = FS_REQUESTED;
+ 		}
+ 	WRITEUINT8(p, 0xFF);
+-	I_GetDiskFreeSpace(&availablefreespace);
+-	if (totalfreespaceneeded > availablefreespace)
+-		I_Error("To play on this server you must download %s KB,\n"
+-			"but you have only %s KB free space on this drive\n",
+-			sizeu1((size_t)(totalfreespaceneeded>>10)), sizeu2((size_t)(availablefreespace>>10)));
+ 
+ 	// prepare to download
+ 	I_mkdir(downloaddir, 0755);

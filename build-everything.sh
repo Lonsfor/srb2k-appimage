@@ -15,11 +15,13 @@ sudo cmake --build . --config Release --target install
 cd ../..
 
 git clone https://github.com/STJr/Kart-Public.git kart
+patch kart/src/d_netfil.c < d_netfil.c.diff
 cd kart
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
 
 git clone https://gitlab.com/himie/kart-public.git moe
+patch moe/src/d_netfil.c < d_netfil.c.diff
 cd moe
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
