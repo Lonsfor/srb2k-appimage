@@ -14,15 +14,17 @@ cmake .. -DBUILD_EXAMPLES=OFF -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=/usr
 sudo cmake --build . --config Release --target install
 cd ../..
 
-git clone https://github.com/STJr/Kart-Public.git kart
-patch kart/src/d_netfil.c < d_netfil.c.diff
+git clone --branch master --single-branch --no-tags -n https://github.com/STJr/Kart-Public.git kart
 cd kart
+git checkout 8cd205cd2807c6a2064935c8b873972c6570e715
+patch src/d_netfil.c < ../d_netfil.c.diff
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
 
-git clone https://gitlab.com/himie/kart-public.git moe
-patch moe/src/d_netfil.c < d_netfil.c.diff
+git clone --branch moe-mansion --single-branch --no-tags -n https://gitlab.com/himie/kart-public.git moe
 cd moe
+git checkout 6da0b4c93a86c5cd988ac2bd186ac349e3f78ba6
+patch src/d_netfil.c < ../d_netfil.c.diff
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
 

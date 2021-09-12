@@ -1,9 +1,7 @@
 #! /usr/bin/env bash
 set -e
-if [ -n "$DEBUG" ] ; then
-  env
-  set -x
-fi
+set -x
+
 if [ -z "$SRB2WADDIR" ]; then
   export SRB2WADDIR=$APPDIR/usr/games/SRB2Kart
 fi
