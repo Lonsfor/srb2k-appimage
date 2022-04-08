@@ -1,5 +1,4 @@
 [Desktop Entry]
-Version=1.0
 Type=Application
 Name=Sonic Robo Blast 2 Kart
 Comment=A kart racing mod based on the 3D Sonic the Hedgehog fangame Sonic Robo Blast 2
@@ -9,6 +8,7 @@ Terminal=false
 Categories=ArcadeGame;Game;SportsGame;
 Keywords=kart;sonic;racer;multiplayer;
 Actions=OpenGL;Software;
+PrefersNonDefaultGPU=true
 NoDisplay=false
 X-AppImage-Name=SRB2Kart
 X-AppImage-Arch=x86_64

@@ -4,7 +4,7 @@ set -x
 set -e
 
 sudo apt-get update -y -qq && sudo apt-get upgrade -y -qq
-sudo apt-get install -y -qq --no-install-recommends build-essential git p7zip-full p7zip-rar nasm libpng-dev zlib1g-dev libsdl2-dev libsdl2-mixer-dev libgme-dev libopenmpt-dev libcurl4-openssl-dev rapidjson-dev cmake fuse pkg-config
+sudo apt-get install -y -qq --no-install-recommends build-essential git nasm libpng-dev zlib1g-dev libsdl2-dev libsdl2-mixer-dev libgme-dev libopenmpt-dev libcurl4-openssl-dev rapidjson-dev cmake fuse pkg-config
 
 git clone --branch master --single-branch --no-tags https://github.com/discord/discord-rpc.git
 cd discord-rpc
@@ -16,14 +16,14 @@ cd ../..
 
 git clone --branch master --single-branch --no-tags -n https://github.com/STJr/Kart-Public.git kart
 cd kart
-git checkout 8cd205cd2807c6a2064935c8b873972c6570e715
+git checkout 750b8bfe2058d18f8bce52502c52b790df68a0c5
 patch src/d_netfil.c < ../d_netfil.c.diff
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
 
 git clone --branch moe-mansion --single-branch --no-tags -n https://gitlab.com/himie/kart-public.git moe
 cd moe
-git checkout 6da0b4c93a86c5cd988ac2bd186ac349e3f78ba6
+git checkout 4849fb5c0e1b893347675387007389cc89c39f77
 patch src/d_netfil.c < ../d_netfil.c.diff
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
@@ -35,6 +35,7 @@ chmod +x appimagetool-x86_64.AppImage
 
 install -Dm755 kart/bin/Linux64/Release/lsdl2srb2kart AppDir/usr/bin/srb2kart
 install -Dm755 AppRun AppDir/
+install -Dm644 kart/src/sdl/srb2icon.png AppDir/usr/share/icons/hicolor/64x64/apps/org.srb2.SRB2Kart.png
 install -Dm644 kart/srb2.png AppDir/usr/share/icons/hicolor/256x256/apps/org.srb2.SRB2Kart.png
 install -Dm644 org.srb2.SRB2Kart.desktop AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
 install -Dm644 org.srb2.SRB2Kart.appdata.xml AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
@@ -49,7 +50,9 @@ sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.s
 ./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-noassets-x86_64.AppImage.zsync" AppDir srb2kart-noassets-x86_64.AppImage
 
 wget -q https://github.com/STJr/Kart-Public/releases/download/v1.3/srb2kart-v13-Installer.exe
-7z x srb2kart-v13-Installer.exe -oAppDir/usr/games/SRB2Kart/ "*.kart" "*.srb" "mdls.dat" "mdls/*"
+mkdir -p AppDir/usr/games/SRB2Kart
+unzip srb2kart-v13-Installer.exe -d AppDir/usr/games/SRB2Kart *.kart *.srb mdls*
+chmod +w AppDir/usr/games/SRB2Kart/mdls
 
 ./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-x86_64.AppImage.zsync" AppDir srb2kart-x86_64.AppImage
 
