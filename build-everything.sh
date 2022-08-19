@@ -16,14 +16,7 @@ cd ../..
 
 git clone --branch master --single-branch --no-tags -n https://github.com/STJr/Kart-Public.git kart
 cd kart
-git checkout 750b8bfe2058d18f8bce52502c52b790df68a0c5
-patch src/d_netfil.c < ../d_netfil.c.diff
-LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
-cd ..
-
-git clone --branch moe-mansion --single-branch --no-tags -n https://gitlab.com/himie/kart-public.git moe
-cd moe
-git checkout 4849fb5c0e1b893347675387007389cc89c39f77
+git checkout c5e131460e97ceb7bed9016529a0b038f19a6cf2
 patch src/d_netfil.c < ../d_netfil.c.diff
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
@@ -42,33 +35,16 @@ install -Dm644 org.srb2.SRB2Kart.appdata.xml AppDir/usr/share/metainfo/org.srb2.
 
 ./linuxdeploy-x86_64.AppImage --appdir AppDir
 
-export NEWVERSION=1.3-git-$(cd kart && git rev-parse --short HEAD)
+export NEWVERSION=1.4-git-$(cd kart && git rev-parse --short HEAD)
 export NEWCOMMITANDDATE=$(cd kart && git show --summary --pretty='format:"1.3-git-%h" date="%cs"')
 sed -i 's/VERSION/'"$NEWVERSION"'/g' AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
 sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
 
 ./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-noassets-x86_64.AppImage.zsync" AppDir srb2kart-noassets-x86_64.AppImage
 
-wget -q https://github.com/STJr/Kart-Public/releases/download/v1.3/srb2kart-v13-Installer.exe
+wget -q https://github.com/STJr/Kart-Public/releases/download/v1.4/srb2kart-v14-Installer.exe
 mkdir -p AppDir/usr/games/SRB2Kart
-unzip srb2kart-v13-Installer.exe -d AppDir/usr/games/SRB2Kart *.kart *.srb mdls*
+unzip srb2kart-v14-Installer.exe -d AppDir/usr/games/SRB2Kart *.kart *.srb mdls*
 chmod +w AppDir/usr/games/SRB2Kart/mdls
 
 ./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-x86_64.AppImage.zsync" AppDir srb2kart-x86_64.AppImage
-
-mv AppDir/usr/games/ ./
-
-install -Dm755 moe/bin/Linux64/Release/lsdl2srb2kart AppDir/usr/bin/srb2kart
-install -Dm644 org.srb2.SRB2Kart.desktop AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
-install -Dm644 org.srb2.SRB2Kart.appdata.xml AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
-
-export NEWVERSION=1.3-moe-$(cd moe && git rev-parse --short HEAD)
-export NEWCOMMITANDDATE=$(cd moe && git show --summary --pretty='format:"1.3-moe-%h" date="%cs"')
-sed -i 's/VERSION/'"$NEWVERSION"'/g' AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
-sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
-
-./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-moe-noassets-x86_64.AppImage.zsync" AppDir srb2kart-moe-noassets-x86_64.AppImage
-
-mv ./games/ AppDir/usr/
-
-./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-moe-x86_64.AppImage.zsync" AppDir srb2kart-moe-x86_64.AppImage
