@@ -16,7 +16,7 @@ cd ../..
 
 git clone --branch master --single-branch --no-tags -n https://github.com/STJr/Kart-Public.git kart
 cd kart
-git checkout c5e131460e97ceb7bed9016529a0b038f19a6cf2
+git checkout 993b3c96ac5302828d09fd73494d01bb250aeb65
 patch src/d_netfil.c < ../d_netfil.c.diff
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
@@ -35,16 +35,16 @@ install -Dm644 org.srb2.SRB2Kart.appdata.xml AppDir/usr/share/metainfo/org.srb2.
 
 ./linuxdeploy-x86_64.AppImage --appdir AppDir
 
-export NEWVERSION=1.4-git-$(cd kart && git rev-parse --short HEAD)
-export NEWCOMMITANDDATE=$(cd kart && git show --summary --pretty='format:"1.3-git-%h" date="%cs"')
+export NEWVERSION=1.5-git-$(cd kart && git rev-parse --short HEAD)
+export NEWCOMMITANDDATE=$(cd kart && git show --summary --pretty='format:"1.5-git-%h" date="%cs"')
 sed -i 's/VERSION/'"$NEWVERSION"'/g' AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
 sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
 
 ./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-noassets-x86_64.AppImage.zsync" AppDir srb2kart-noassets-x86_64.AppImage
 
-wget -q https://github.com/STJr/Kart-Public/releases/download/v1.4/srb2kart-v14-Data.zip
+wget -q https://github.com/STJr/Kart-Public/releases/download/v1.5/AssetsLinuxOnly.zip
 mkdir -p AppDir/usr/games/SRB2Kart
-unzip srb2kart-v14-Data.zip -d AppDir/usr/games/SRB2Kart *.kart *.srb mdls*
+unzip AssetsLinuxOnly.zip -d AppDir/usr/games/SRB2Kart *.kart *.srb mdls*
 chmod +w AppDir/usr/games/SRB2Kart/mdls
 
 ./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-x86_64.AppImage.zsync" AppDir srb2kart-x86_64.AppImage
