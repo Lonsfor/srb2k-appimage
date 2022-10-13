@@ -24,7 +24,7 @@ cd ..
 git clone --branch Galaxy --single-branch --no-tags -n https://git.do.srb2.org/Galactice/Kart-Public.git galaxy
 cd galaxy
 git checkout 5e10d9b2fbbb21f7f0e39588b3c32fa769c5633a
-patch src/d_netfil.c < ../d_netfil.c.patch
+patch src/d_netfil.c < ../d_netfil.c.g.patch
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
 
