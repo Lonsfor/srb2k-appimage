@@ -1,6 +1,6 @@
 --- a/src/d_netfil.c	2022-10-13 13:54:46.683867547 -0300
 +++ b/src/d_netfil.c	2022-10-13 13:54:39.861867642 -0300
-@@ -338,11 +338,6 @@
+@@ -338,12 +338,6 @@
  			fileneeded[i].status = FS_REQUESTED;
  		}
  	WRITEUINT8(p, 0xFF);
@@ -9,6 +9,7 @@
 -		I_Error("To play on this server you must download %s KB,\n"
 -			"but you have only %s KB free space on this drive\n",
 -			sizeu1((size_t)(totalfreespaceneeded>>10)), sizeu2((size_t)(availablefreespace>>10)));
- 
+-
  	// prepare to download
  	I_mkdir(downloaddir, 0755);
+ 	return HSendPacket(servernode, true, 0, p - (char *)netbuffer->u.textcmd);
