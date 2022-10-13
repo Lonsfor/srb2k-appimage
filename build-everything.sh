@@ -16,8 +16,8 @@ cd ../..
 
 git clone --branch master --single-branch --no-tags -n https://github.com/STJr/Kart-Public.git kart
 cd kart
-git checkout 2db57c72e53c29db74743ea44809d62498ccfc81
-patch src/d_netfil.c < ../d_netfil.c.diff
+git checkout a12aaf40ce8c6b4993474170e2f2e4a9c485f3e4
+patch src/d_netfil.c < ../d_netfil.c.patch
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
 
