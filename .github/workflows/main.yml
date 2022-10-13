@@ -19,6 +19,5 @@ jobs:
           title: "Latest Build"
           prerelease: false
           files: |
-            srb2kart-x86_64.AppImage
-            srb2kart-noassets-x86_64.AppImage
+            srb2kart-*.AppImage
             *.AppImage.zsync
