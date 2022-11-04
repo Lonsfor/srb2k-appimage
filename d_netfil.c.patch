@@ -1,15 +1,18 @@
---- a/src/d_netfil.c	2022-10-13 16:29:38.509739057 -0300
-+++ b/src/d_netfil.c	2022-10-13 16:35:03.452734564 -0300
-@@ -338,12 +338,6 @@
- 			fileneeded[i].status = FS_REQUESTED;
+--- a/src/d_netfil.c	2022-11-04 17:11:36.737717055 -0300
++++ b/src/d_netfil.c	2022-11-04 17:13:44.473715289 -0300
+@@ -343,15 +343,6 @@
  		}
- 	WRITEUINT8(p, 0xFF);
+ 	}
+ 
 -	I_GetDiskFreeSpace(&availablefreespace);
 -	if (totalfreespaceneeded > availablefreespace)
--		I_Error("To play on this server you must download %s KB,\n"
--			"but you have only %s KB free space on this drive\n",
+-	{
+-		CONS_Printf("Direct download -\n"
+-			" To play on this server you must download %s KB,\n"
+-			" but you have only %s KB free space on this drive\n",
 -			sizeu1((size_t)(totalfreespaceneeded>>10)), sizeu2((size_t)(availablefreespace>>10)));
--
- 	// prepare to download
- 	I_mkdir(downloaddir, 0755);
- 	return HSendPacket(servernode, true, 0, p - (char *)netbuffer->u.textcmd);
+-		return false;
+-	}
+ 
+ #ifdef MORELEGACYDOWNLOADER
+ tryagain:
