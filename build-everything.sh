@@ -21,12 +21,12 @@ patch src/d_netfil.c < ../d_netfil.c.patch
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
 
-#git clone --branch Galaxy --single-branch --no-tags -n https://git.do.srb2.org/Galactice/Kart-Public.git galaxy
-#cd galaxy
-#git checkout 99ae4ecf3dfc2416e2f2dafdb2afd2369b9604fe
-#patch src/d_netfil.c < ../d_netfil.c.g.patch
-#LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
-#cd ..
+git clone --branch Galaxy-Redux --single-branch --no-tags -n https://git.do.srb2.org/Galactice/Kart-Public.git galaxy
+cd galaxy
+git checkout b0544e766e121e5dca8a5b4f97c05b450052f954
+patch src/d_netfil.c < ../d_netfil.c.patch
+LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
+cd ..
 
 wget -q https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
 wget -q https://github.com/AppImage/AppImageKit/releases/download/13/appimagetool-x86_64.AppImage
@@ -56,17 +56,17 @@ chmod +w AppDir/usr/games/SRB2Kart/mdls
 
 ./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-x86_64.AppImage.zsync" AppDir srb2kart-x86_64.AppImage
 
-#install -Dm755 galaxy/bin/Linux64/Release/lsdl2srb2kart AppDir/usr/bin/srb2kart
-#install -Dm644 org.srb2.SRB2Kart.desktop AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
-#install -Dm644 org.srb2.SRB2Kart.appdata.xml AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
+install -Dm755 galaxy/bin/Linux64/Release/lsdl2srb2kart AppDir/usr/bin/srb2kart
+install -Dm644 org.srb2.SRB2Kart.desktop AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
+install -Dm644 org.srb2.SRB2Kart.appdata.xml AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
 
-#export NEWVERSION=1.3-galaxy-$(cd galaxy && git rev-parse --short HEAD)
-#export NEWCOMMITANDDATE=$(cd galaxy && git show --summary --pretty='format:"1.5-galaxy-%h" date="%cs"')
-#sed -i 's/VERSION/'"$NEWVERSION"'/g' AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
-#sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
+export NEWVERSION=1.6-galaxy-$(cd galaxy && git rev-parse --short HEAD)
+export NEWCOMMITANDDATE=$(cd galaxy && git show --summary --pretty='format:"1.6-galaxy-%h" date="%cs"')
+sed -i 's/VERSION/'"$NEWVERSION"'/g' AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
+sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
 
-#./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-galaxy-x86_64.AppImage.zsync" AppDir srb2kart-galaxy-x86_64.AppImage
+./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-galaxy-x86_64.AppImage.zsync" AppDir srb2kart-galaxy-x86_64.AppImage
 
-#rm -rf AppDir/usr/games
+rm -rf AppDir/usr/games
 
-#./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-galaxy-noassets-x86_64.AppImage.zsync" AppDir srb2kart-galaxy-noassets-x86_64.AppImage
+./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-galaxy-noassets-x86_64.AppImage.zsync" AppDir srb2kart-galaxy-noassets-x86_64.AppImage
