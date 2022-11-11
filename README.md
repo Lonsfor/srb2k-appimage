@@ -12,4 +12,4 @@ Ignore the `.zsync` files those are for the updating system.
 
 ### noassets:
 
-If you download an AppImage without assets make sure you have them somewere else beforehand. In case you do not, they can be found [here](https://github.com/STJr/Kart-Public/releases/download/v1.5/AssetsLinuxOnly.zip). Place the `.kart`, `.srb`, `mdls` and `mdls.dat` files in `~/.srb2kart`.
+If you download an AppImage without assets make sure you have them somewere else beforehand. In case you do not, they can be found [here](https://github.com/STJr/Kart-Public/releases/download/v1.6/AssetsLinuxOnly.zip). Place the `.kart`, `.srb`, `mdls` and `mdls.dat` files in `~/.srb2kart`.
