@@ -16,14 +16,14 @@ cd ../..
 
 git clone --branch master --single-branch --no-tags -n https://github.com/STJr/Kart-Public.git kart
 cd kart
-git checkout 371c7c06aa88f9ee395d0e9bd912d4b4c675dacf
+git checkout 20a5adde02d134a1badaf22fa6f680eba0580308
 patch src/d_netfil.c < ../d_netfil.c.patch
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
 
 git clone --branch Galaxy-Redux --single-branch --no-tags -n https://git.do.srb2.org/Galactice/Kart-Public.git galaxy
 cd galaxy
-git checkout b0544e766e121e5dca8a5b4f97c05b450052f954
+git checkout ef8e6abebd9db6d4e7ee3e13767f16ff634acfd3
 patch src/d_netfil.c < ../d_netfil.c.patch
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
