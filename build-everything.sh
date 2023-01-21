@@ -4,7 +4,7 @@ set -x
 set -e
 
 sudo apt-get update -y -qq && sudo apt-get upgrade -y -qq
-sudo apt-get install -y -qq --no-install-recommends build-essential git nasm libpng-dev zlib1g-dev libsdl2-dev libsdl2-mixer-dev libgme-dev libopenmpt-dev libcurl4-openssl-dev rapidjson-dev cmake fuse pkg-config
+sudo apt-get install -y -qq --no-install-recommends build-essential git nasm libpng-dev zlib1g-dev libsdl2-dev libsdl2-mixer-dev libgme-dev libopenmpt-dev libcurl4-openssl-dev rapidjson-dev cmake fuse3 pkg-config
 
 git clone --branch master --single-branch --no-tags https://github.com/discord/discord-rpc.git
 cd discord-rpc
