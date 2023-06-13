@@ -56,7 +56,7 @@ install -Dm644 org.srb2.SRB2Kart.metainfo.xml AppDir/usr/share/metainfo/org.srb2
 export NEWVERSION=1.6-git-$(cd kart && git rev-parse --short HEAD)
 export NEWCOMMITANDDATE=$(cd kart && git show --summary --pretty='format:"1.6-git-%h" date="%cs"')
 sed -i 's/VERSION/'"$NEWVERSION"'/g' AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
-sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
+sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.srb2.SRB2Kart.metainfo.xml
 
 ./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-noassets-x86_64.AppImage.zsync" AppDir srb2kart-noassets-x86_64.AppImage
 
@@ -77,7 +77,7 @@ install -Dm644 org.srb2.SRB2Kart.metainfo.xml AppDir/usr/share/metainfo/org.srb2
 export NEWVERSION=1.6-galaxy-$(cd galaxy && git rev-parse --short HEAD)
 export NEWCOMMITANDDATE=$(cd galaxy && git show --summary --pretty='format:"1.6-galaxy-%h" date="%cs"')
 sed -i 's/VERSION/'"$NEWVERSION"'/g' AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
-sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
+sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.srb2.SRB2Kart.metainfo.xml
 
 ./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-galaxy-x86_64.AppImage.zsync" AppDir srb2kart-galaxy-x86_64.AppImage
 
@@ -93,7 +93,7 @@ install -Dm644 org.srb2.SRB2Kart.metainfo.xml AppDir/usr/share/metainfo/org.srb2
 export NEWVERSION=1.6-HEP-$(cd galaxy && git rev-parse --short HEAD)
 export NEWCOMMITANDDATE=$(cd HEP && git show --summary --pretty='format:"1.6-HEP-%h" date="%cs"')
 sed -i 's/VERSION/'"$NEWVERSION"'/g' AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
-sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
+sed -i 's/COMMITANDDATE/'"$NEWCOMMITANDDATE"'/g' AppDir/usr/share/metainfo/org.srb2.SRB2Kart.metainfo.xml
 
 ./appimagetool-x86_64.AppImage -n -u "gh-releases-zsync|lonsfor|srb2k-appimage|latest|srb2kart-HEP-noassets-x86_64.AppImage.zsync" AppDir srb2kart-HEP-noassets-x86_64.AppImage
 
