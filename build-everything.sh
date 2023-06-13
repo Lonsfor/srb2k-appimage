@@ -30,7 +30,7 @@ patch src/d_netfil.c < ../d_netfil.c.patch
 LIBGME_CFLAGS= LIBGME_LDFLAGS=-lgme make -C src/ LINUX64=1 NOUPX=1 NOOBJDUMP=1 HAVE_DISCORDRPC=1
 cd ..
 
-git clone --branch Galaxy --single-branch --no-tags -n https://git.do.srb2.org/haya_/Kart-Public.git HEP
+git clone --branch Glalxy --single-branch --no-tags -n https://git.do.srb2.org/haya_/Kart-Public.git HEP
 cd HEP
 git checkout 4b8471c232f2024a679b546259d3b6dd943dc095
 patch src/d_netfil.c < ../d_netfil.c.patch
