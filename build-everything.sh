@@ -49,7 +49,7 @@ install -Dm755 AppRun AppDir/
 install -Dm644 kart/src/sdl/srb2icon.png AppDir/usr/share/icons/hicolor/64x64/apps/org.srb2.SRB2Kart.png
 install -Dm644 kart/srb2.png AppDir/usr/share/icons/hicolor/256x256/apps/org.srb2.SRB2Kart.png
 install -Dm644 org.srb2.SRB2Kart.desktop AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
-install -Dm644 org.srb2.SRB2Kart.appdata.xml AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
+install -Dm644 org.srb2.SRB2Kart.metainfo.xml AppDir/usr/share/metainfo/org.srb2.SRB2Kart.metainfo.xml
 
 ./linuxdeploy-x86_64.AppImage --appdir AppDir
 
@@ -72,7 +72,7 @@ cp -r games AppDir/usr
 
 install -Dm755 galaxy/bin/Linux64/Release/lsdl2srb2kart AppDir/usr/bin/srb2kart
 install -Dm644 org.srb2.SRB2Kart.desktop AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
-install -Dm644 org.srb2.SRB2Kart.appdata.xml AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
+install -Dm644 org.srb2.SRB2Kart.metainfo.xml AppDir/usr/share/metainfo/org.srb2.SRB2Kart.metainfo.xml
 
 export NEWVERSION=1.6-galaxy-$(cd galaxy && git rev-parse --short HEAD)
 export NEWCOMMITANDDATE=$(cd galaxy && git show --summary --pretty='format:"1.6-galaxy-%h" date="%cs"')
@@ -88,7 +88,7 @@ rm -rf AppDir/usr/games
 
 install -Dm755 HEP/bin/Linux64/Release/lsdl2srb2kart AppDir/usr/bin/srb2kart
 install -Dm644 org.srb2.SRB2Kart.desktop AppDir/usr/share/applications/org.srb2.SRB2Kart.desktop
-install -Dm644 org.srb2.SRB2Kart.appdata.xml AppDir/usr/share/metainfo/org.srb2.SRB2Kart.appdata.xml
+install -Dm644 org.srb2.SRB2Kart.metainfo.xml AppDir/usr/share/metainfo/org.srb2.SRB2Kart.metainfo.xml
 
 export NEWVERSION=1.6-HEP-$(cd galaxy && git rev-parse --short HEAD)
 export NEWCOMMITANDDATE=$(cd HEP && git show --summary --pretty='format:"1.6-HEP-%h" date="%cs"')
